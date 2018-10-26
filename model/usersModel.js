@@ -309,17 +309,17 @@ const usersModel = {
                         }
                     })
                 },
-                function (callback) {
-                    //查询所有表记录
-                    db.collection('mobile').find().count(function (err, num) {
-                        if (err) {
-                            callback({ code: -101, msg: '查询表的记录数据失败' });
-                        } else {
-                            saveData.id = num + 1;
-                            callback(null);
-                        }
-                    })
-                },
+                // function (callback) {
+                //     //查询所有表记录
+                //     db.collection('mobile').find().count(function (err, num) {
+                //         if (err) {
+                //             callback({ code: -101, msg: '查询表的记录数据失败' });
+                //         } else {
+                //             saveData.id = num + 1;
+                //             callback(null);
+                //         }
+                //     })
+                // },
                 function (callback) {
                     //写入数据库操作
                     db.collection('mobile').insertOne(saveData, function (err) {
