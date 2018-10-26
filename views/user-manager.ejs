@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        骑迹在线
+    </title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .users{
+            color: brown;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contaner">
+
+        <%- include('./common/header.ejs', { nickname: nickname, is_admin: is_admin,username:username }) %>
+        
+        <div class="main">
+        
+            <%- include('./common/main.ejs', {is_admin: is_admin }) %>
+
+            <div class="main-right">
+                <p>查找用户信息</p>
+               
+                <form action="/user-manager" method="get">
+                    <input type="text" name="username" placeholder="请输入用户名">
+                    <input type="submit" value="查找">
+                </form>
+                
+                <p>输出用户信息</p>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>用户昵称</th>
+                            <th>手机号码</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>是否管理员</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                        <% if(userList.length){%>
+                            
+                             <% for(var i = 0; i< userList.length; i++){ %>
+                                <tr >
+                                    <td> <%= i+1 %> </td>
+                                    <td><%= userList[i].username %></td>
+                                    <td><%= userList[i].nickname %></td>
+                                    <td><%= userList[i].phone %></td>
+                                    <td><%= userList[i].sex || '-' %></td>
+                                    <td><%= userList[i].age || '-' %></td>
+                                    <td><%= parseInt(userList[i].is_admin) ? '是' : '否' %></td>
+                                    <td>
+                                        <!--
+                                            1. 如果当前登录的管理员跟这条记录匹配。那么可以修改，
+                                            2. 如果这条记录是其他管理员记录的话，那么不可以删除，也不可以修改
+                                            3. 其余的可以删除和修改
+                                               -->
+                                        <% if (userList[i].username === username) { %>
+                                            <button id="xiugai">修改</button>
+                                        <% } else if (parseInt(userList[i].is_admin)) { %>
+                            
+                                        <% } else { %>
+                                            <button id="xiugai">修改</button>
+                                            <a href="/shangchu?shangchu=<%= userList.username %>">删除</a>                                            
+                                            
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }%>
+
+                        <% }else{%>
+                            <tr>
+                                <td>1</td>
+                                <td><%= userList.username %></td>
+                                <td><%= userList.nickname %></td>
+                                <td><%= userList.phone %></td>
+                                <td><%= userList.sex || '-' %></td>
+                                <td><%= userList.age || '-' %></td>
+                                <td><%= parseInt(userList.is_admin) ? '是' : '否' %></td>
+                                <td>
+                                    <% if (userList.username === username) { %>
+                                    <button id="xiugai">修改</button>
+                                    <% } else if (parseInt(userList.is_admin)) { %>
+                                
+                                    <% } else { %>
+                                    <button id="xiugai">修改</button>
+                                    <a href="/shangchu?shangchu=<%= userList.username %>">删除</a>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% }%>
+                    </tbody>
+                </table>
+                
+                <ul>
+                    <li>
+                        <% if(totalPage != ''){ %>
+                            <% for(var i = 0; i < totalPage; i++ ){%>
+                                <a href="/findUsers?page=<%= i+1 %>"><%= i+1 %>页</a>
+                            <% }%>
+                        <% }else{ %>
+                            <a href="/findUsers">查看全部</a>
+                        <% } %>
+                    </li>
+                </ul>
+
+                <form action="/xiugai" method="get" class="changeform">
+                    <!-- <h2>修改</h2> -->
+                    <div class="xiugaidiv">
+                        <span>用户名:</span>
+                        <input type="text" disabled class="ussername" >
+                        <input type="text" name="username" class="ussername nofind " >
+                    </div>
+                    <div class="xiugaidiv">
+                        <span>昵称:</span>
+                        <input type="text" name="nickname" class="nickname">
+                    </div>
+                    <div class="xiugaidiv">
+                        <span>手机号码:</span>
+                        <input type="text" name="phone" class="phone">
+                    </div>
+                    <div class="sex">
+                        <span>性别:</span>
+                        <input type="radio" name="sex" value="男" class="radios">男
+                        <input type="radio" name="sex" checked="checked" class="radios" value="女">女
+                    </div>
+                    <div class="xiugaidiv">
+                        <span>年龄:</span>
+                        <input type="text" name="age" class="age" >
+                    </div>
+                    <div class="xiugaidiv">
+                        <input type="submit" value="确认修改" class="submit" >
+                        <input type="button" value="取消" class="button">
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+<script src="jquery/jquery.js"></script>
+<script>
+    $('#table').delegate('#xiugai','click',function () {
+        $('.ussername').val( $(this).parent().parent('tr').find('td').eq(1).html());
+        $('.nickname').val($(this).parent().parent('tr').find('td').eq(2).html());
+        $('.phone').val($(this).parent().parent('tr').find('td').eq(3).html());
+        $('.age').val($(this).parent().parent('tr').find('td').eq(5).html());
+        $('.changeform').slideDown();
+    })
+    $('.submit').click(function () {
+         $(".changeform").slideUp();
+    })
+     $('.button').click(function () {
+         $(".changeform").slideUp();
+    })
+
+</script>
+</body>
+
+</html>

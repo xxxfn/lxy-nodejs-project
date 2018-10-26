@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>骑迹在线 </title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .brand {
+            color: brown;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contaner">
+
+        <%- include('./common/header.ejs', { nickname: nickname, is_admin: is_admin,username:username }) %>
+
+        <div class="main">
+
+            <%- include('./common/main.ejs', {is_admin: is_admin }) %>
+
+            <div class="main-right">
+
+                <button  class="addmobile"> 新增品牌</button>
+                <form action="javascript:;" method="POST" enctype="multipart/form-data" id="addform">
+                    <div class="col-sm-9">
+                        <label class="col-sm-3">品牌名称</label>
+                        <input type="text" id="randname" class="form-control " placeholder="请输入品牌名">
+                    </div>
+
+                    <div>
+                         <label class="col-sm-3">品牌LOGO</label>
+                        <input type="file" id="brandimg" name="mobile" placeholder="请上传图片">
+                    </div>
+
+                    <div class="col-sm-9">
+                        <input type="submit" class="btn-default " value="新增">
+                        <input type="button" value="取消" class="addnone">
+                    </div>
+                </form>
+
+                <p>输出品牌信息</p>
+                <table border="1" >
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>品牌LOGO</th>
+                            <th>品牌名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+
+                    </tbody>
+                </table>   
+               <ul>
+                    <li id="page"></li>
+               </ul>
+                <!-- 修改手机信息 -->
+                <form action="javascript:;" method="POST" enctype="multipart/form-data" id="brandchange">
+                    <!-- <h2 style="margin:auto">修改</h2> -->
+                    <div class="xiugaidiv">
+                        <span>品牌名称:</span>
+                        <input type="text"  class="mobilename">
+                        <!-- <input type="text" name="mobilename" class="mobilename nofind "   > -->
+                    </div>
+                    <div class="sex">
+                        <span>LOGO:</span>
+                        <input type="file" name="mobile" id="amendurl" placeholder="请上传图片">
+                    </div>
+                    <div class="xiugaidiv">
+                        <input type="submit" value="确认修改" class="submit">
+                        <input type="button" value="取消" class="cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery/jquery.js"></script>
+<script src="brandjs/brandJS.js"></script>
+<script>
+
+</script>

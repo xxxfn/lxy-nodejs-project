@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>骑迹在线</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <div class="contaner">
+
+    <%- include('./common/header.ejs', { nickname: nickname, is_admin: is_admin, username: username } ) %>     
+
+      <div class="main">
+          <%- include('./common/main.ejs', {is_admin: is_admin }) %>
+        <div class="main-right">
+          <h2>welcome</h2>
+        </div>
+      </div>
+  </div>
+   
+
+  </body>
+</html>

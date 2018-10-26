@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- <h1>骑迹，在路上</h1> -->
+            <form action="users/login" method="POST" class="form-group">
+                <div class="tbody">
+                    <label class="col-sm-3">用户名:</label>
+                    <input type="text" name="username" class="form-control " placeholder="请输入用户名">
+                </div>
+                <div class="tbody">
+                    <label class="col-sm-3">密码:</label>
+                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <div class="tbody">
+                    <input type="submit" class="btn" value="立即登录">
+                </div>
+                <div class="tbody">
+                    <a href="register" class="go-register">去注册</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="jquery/jquery.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+body,html,div,span,a,button,h1,form,input,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(65, 63, 59);
+}
+body{
+    height: 100%;
+    background: url(../images/login-bg1.jpg);
+}
+html{
+    height: 100%;
+}
+tr{
+    text-align: center;
+}
+td{
+    padding: 5px 20px;
+}
+.contaner{
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background: #000000;
+    color: #A29F9A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-right{
+    font-size: 25px;
+}
+.button{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    color: #A29F9A;
+}
+.main{
+    flex: 1;
+    display: flex;
+}
+.main-left{
+    width: 300px;
+    border-right: 1px solid #000000;
+}
+.main-right{
+   position: relative;
+   flex: 1;
+}
+.main_item{
+    margin-bottom: 10px;
+}
+/* 修改表单样式 */
+.changeform{
+    width: 450px;
+    height: 450px;
+    padding-top: 50px;
+    border: 1px solid #a19797;
+    position: absolute;
+    right: 100px;
+    top: 120px;
+    display: none;
+    background:rgb(209, 206, 199);
+    border-radius: 10px;
+}
+.xiugaidiv{
+    width: 395px;
+    height: 80px;
+    margin: 5px auto;
+    text-align: right;
+}
+.sex{
+     width: 370px;
+    height: 80px;
+     margin: 5px auto;
+    line-height: 80px;
+    text-align: left;
+    padding-left: 10px；
+}
+.changeform input{
+    width: 290px;
+    height: 55px;
+    border-radius: 5px;
+    padding-left: 10px; 
+}
+.changeform .radios{
+    width: 20px;
+    height: 20px;
+}
+.changeform .submit{
+    width: 100px;
+    height: 50px;
+    background:#A29F9A;
+}
+.changeform  .button{
+    width: 100px;
+    height: 50px;
+}
+.changeform .nofind{
+    display: none;
+}
+/* 新增手机表单样式 */
+#addform{
+    width: 350px;
+    height: 500px;
+    position: absolute;
+    left: 180px;
+    top: 90px;
+    border: 1px solid #ddd5d5;
+    background: rgb(207, 199, 188);
+    padding-top:20px; 
+    border-radius: 5px;
+    display: none;
+}
+.col-sm-9{
+    width: 300px;
+    height: 90px;
+    line-height: 90px;
+    text-align: right;
+}
+.form-control{
+    height: 50px;
+    width: 190px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.btn-default{
+    width: 100px;
+    height: 50px;
+}
+.addnone{
+    width: 100px;
+    height: 50px;
+}
+.addmobile{
+    width: 150px;
+    height: 70px;
+    margin: 20px;
+    font-size: 17px;
+    border-radius: 10px;
+    background: rgb(196, 195, 190);
+    border: 1px solid #eaebde3f;
+    list-style: none;
+}
+/* 品牌修改表单样式 */
+#brandchange{
+    width: 450px;
+    height: 300px;
+    padding-top: 50px;
+    border: 1px solid #000000;
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    display: none;
+    background: rgba(196, 194, 178, 0.651);
+    border-radius: 10px;
+}
+#brandchange input{
+     width: 290px;
+    height: 55px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+#brandchange .submit{
+    width: 100px;
+    height: 50px;
+    background:rgb(196, 198, 199);
+}
+#brandchange  .button{
+    width: 100px;
+    height: 50px;
+}
+
+#brandchange  .cancel{
+    width: 100px;
+    height: 50px;
+}
+#brandchange .nofind{
+    display: none;
+}

@@ -1,0 +1,14 @@
+<div class="header">
+    <h1>xxx-后台管理系统</h1>
+    <div class="header-right">
+        欢迎您-
+
+        <% if(nickname){%>
+            <%= nickname %>-
+        <% }else{ %>
+            <%= username %>-
+        <% } %>
+        <%= is_admin %>
+        <a href="users/loginout" class="button" >退出</a>
+    </div>
+</div>

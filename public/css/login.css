@@ -1,0 +1,56 @@
+div,h1,form,label,input{
+    padding:0;
+    margin: 0;
+}
+
+.container{
+    width: 799px;
+    height: 589px;
+    margin: 50px auto; 
+    padding-top :50px; 
+    background: url(../images/login-bg1.jpg) no-repeat center center;
+}
+.row{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:rgba(0,0,0,0.1);
+}
+h1{
+    color: aliceblue;
+    font-weight: normal;
+}
+form{
+    display: flex;
+    flex-direction: column; 
+}
+.go-register{
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    background: #ffffff;
+    text-decoration: none;
+    color: black;
+}
+input{
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.tbody{
+    width: 335px;
+    height: 70px;
+    text-align: right;
+}
+.btn{
+    background: red;
+    color: #ffffff;
+    border: 0;
+    font-size: 15px;
+}
